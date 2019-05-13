@@ -12212,23 +12212,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\richa\\.nuget\\packages\\": {},
+    "C:\\Users\\Richard\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\WebUI\\DBank.WebUI.csproj",
+      "projectUniqueName": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\WebUI\\DBank.WebUI.csproj",
       "projectName": "DBank.WebUI",
-      "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\WebUI\\DBank.WebUI.csproj",
-      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\WebUI\\obj\\",
+      "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\WebUI\\DBank.WebUI.csproj",
+      "packagesPath": "C:\\Users\\Richard\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\WebUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Richard\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12241,14 +12241,14 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj": {
-              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj"
+            "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj": {
+              "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj"
             },
-            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj"
+            "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj"
             },
-            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Persistence\\DBank.Persistence.csproj": {
-              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Persistence\\DBank.Persistence.csproj"
+            "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Persistence\\DBank.Persistence.csproj": {
+              "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Persistence\\DBank.Persistence.csproj"
             }
           }
         }

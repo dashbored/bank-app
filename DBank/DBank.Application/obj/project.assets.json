@@ -725,23 +725,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\richa\\.nuget\\packages\\": {},
+    "C:\\Users\\Richard\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj",
       "projectName": "DBank.Application",
-      "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj",
-      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Application\\obj\\",
+      "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj",
+      "packagesPath": "C:\\Users\\Richard\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Richard\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -754,8 +754,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Domain\\DBank.Domain.csproj": {
-              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Domain\\DBank.Domain.csproj"
+            "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Domain\\DBank.Domain.csproj": {
+              "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\bank-app\\DBank\\DBank.Domain\\DBank.Domain.csproj"
             }
           }
         }
