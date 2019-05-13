@@ -1,18 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Threading.Tasks;
+using DBank.Application.Bank.Queries.GetBankStatistics;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Models;
 
-namespace WebUI.Controllers
+namespace DBank.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IMediator _mediator;
+
+        public HomeController(IMediator mediator)
         {
-            return View();
+            _mediator = mediator;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var model = await _mediator.Send(new GetBankStatisticsQuery());
+            return View(model);
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model DBank.Application.Bank.Queries.GetBankStatistics.BankStatisticsViewModel
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Number of customers: @Model.NumberOfCustomers</p>
+    <p>Number of accounts: @Model.NumberOfAccounts</p>
+    <p>Total balance: @Model.TotalBalance</p>
 </div>
