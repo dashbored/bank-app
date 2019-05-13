@@ -1,7 +1,19 @@
 ﻿@model DBank.Application.Bank.Queries.GetBankStatistics.BankStatisticsViewModel
 
-<div class="text-center">
-    <p>Number of customers: @Model.NumberOfCustomers</p>
-    <p>Number of accounts: @Model.NumberOfAccounts</p>
-    <p>Total balance: @Model.TotalBalance</p>
+<div class="flex flex-column">
+    <div class="row pb-3">
+        <h1>Overall statistics</h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p>Number of customers: @Model.NumberOfCustomers</p>
+        </div>
+        <div class="col">
+            <p>Number of accounts: @Model.NumberOfAccounts</p>
+        </div>
+        <div class="col">
+            <p>Total balance: @Model.TotalBalance</p>
+        </div>
+    </div>
 </div>

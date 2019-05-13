@@ -19,4 +19,9 @@
     <ProjectReference Include="..\DBank.Persistence\DBank.Persistence.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
