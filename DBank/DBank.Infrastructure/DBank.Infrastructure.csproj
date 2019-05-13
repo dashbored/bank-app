@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DBank.Application\DBank.Application.csproj" />
+    <ProjectReference Include="..\DBank.Common\DBank.Common.csproj" />
+  </ItemGroup>
+
 </Project>

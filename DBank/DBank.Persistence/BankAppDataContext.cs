@@ -17,10 +17,10 @@ namespace DBank.Persistence
         {
         }
 
-        public virtual DbSet<Accounts> Accounts { get; set; }
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Dispositions> Dispositions { get; set; }
-        public virtual DbSet<Transactions> Transactions { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Disposition> Dispositions { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,7 +35,7 @@ namespace DBank.Persistence
         {
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
-            modelBuilder.Entity<Accounts>(entity =>
+            modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.AccountId)
                     .HasName("PK_account");
@@ -49,7 +49,7 @@ namespace DBank.Persistence
                     .HasMaxLength(50);
             });
 
-            modelBuilder.Entity<Customers>(entity =>
+            modelBuilder.Entity<Customer>(entity =>
             {
                 entity.HasKey(e => e.CustomerId);
 
@@ -100,7 +100,7 @@ namespace DBank.Persistence
                     .HasMaxLength(15);
             });
 
-            modelBuilder.Entity<Dispositions>(entity =>
+            modelBuilder.Entity<Disposition>(entity =>
             {
                 entity.HasKey(e => e.DispositionId)
                     .HasName("PK_disposition");
@@ -124,7 +124,7 @@ namespace DBank.Persistence
                     .HasConstraintName("FK_Dispositions_Customers");
             });
 
-            modelBuilder.Entity<Transactions>(entity =>
+            modelBuilder.Entity<Transaction>(entity =>
             {
                 entity.HasKey(e => e.TransactionId);
 

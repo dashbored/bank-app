@@ -12,9 +12,9 @@ namespace DBank.Application.Interfaces
     public interface IBankAppDataContext
     {
 
-        DbSet<Accounts> Accounts { get; set; }
-        DbSet<Customers> Customers { get; set; }
-        DbSet<Dispositions> Dispositions { get; set; }
-        DbSet<Transactions> Transactions { get; set; }
+        DbSet<Account> Accounts { get; set; }
+        DbSet<Customer> Customers { get; set; }
+        DbSet<Disposition> Dispositions { get; set; }
+        DbSet<Transaction> Transactions { get; set; }
     }
 }
