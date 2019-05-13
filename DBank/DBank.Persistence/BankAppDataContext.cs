@@ -1,0 +1,159 @@
+﻿using System;
+using DBank.Application.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using DBank.Domain.Entities;
+
+namespace DBank.Persistence
+{
+    public partial class BankAppDataContext : DbContext, IBankAppDataContext
+    {
+        public BankAppDataContext()
+        {
+        }
+
+        public BankAppDataContext(DbContextOptions<BankAppDataContext> options)
+            : base(options)
+        {
+        }
+
+        public virtual DbSet<Accounts> Accounts { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<Dispositions> Dispositions { get; set; }
+        public virtual DbSet<Transactions> Transactions { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseSqlServer("Server=DESKTOP-401VE7R;Database=BankAppData;Trusted_Connection=True;MultipleActiveResultSets=true");
+            }
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
+
+            modelBuilder.Entity<Accounts>(entity =>
+            {
+                entity.HasKey(e => e.AccountId)
+                    .HasName("PK_account");
+
+                entity.Property(e => e.AccountId).ValueGeneratedNever();
+
+                entity.Property(e => e.Amount).HasColumnType("decimal(13, 4)");
+
+                entity.Property(e => e.Frequency)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Customers>(entity =>
+            {
+                entity.HasKey(e => e.CustomerId);
+
+                entity.Property(e => e.Birthday).HasColumnType("datetime");
+
+                entity.Property(e => e.City)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Country)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.CountryCode)
+                    .IsRequired()
+                    .HasMaxLength(2);
+
+                entity.Property(e => e.Emailaddress)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Gender)
+                    .IsRequired()
+                    .HasMaxLength(6);
+
+                entity.Property(e => e.Givenname)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.NationalId)
+                    .IsRequired()
+                    .HasMaxLength(20);
+
+                entity.Property(e => e.Streetaddress)
+                    .IsRequired()
+                    .HasMaxLength(100);
+
+                entity.Property(e => e.Surname)
+                    .IsRequired()
+                    .HasMaxLength(23);
+
+                entity.Property(e => e.Telephonenumber)
+                    .IsRequired()
+                    .HasMaxLength(25);
+
+                entity.Property(e => e.Zipcode)
+                    .IsRequired()
+                    .HasMaxLength(15);
+            });
+
+            modelBuilder.Entity<Dispositions>(entity =>
+            {
+                entity.HasKey(e => e.DispositionId)
+                    .HasName("PK_disposition");
+
+                entity.Property(e => e.DispositionId).ValueGeneratedNever();
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.Dispositions)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Dispositions_Accounts");
+
+                entity.HasOne(d => d.Customer)
+                    .WithMany(p => p.Dispositions)
+                    .HasForeignKey(d => d.CustomerId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Dispositions_Customers");
+            });
+
+            modelBuilder.Entity<Transactions>(entity =>
+            {
+                entity.HasKey(e => e.TransactionId);
+
+                entity.Property(e => e.TransactionId).ValueGeneratedNever();
+
+                entity.Property(e => e.Account).HasMaxLength(50);
+
+                entity.Property(e => e.Amount).HasColumnType("decimal(13, 4)");
+
+                entity.Property(e => e.Balance).HasColumnType("decimal(13, 4)");
+
+                entity.Property(e => e.Bank).HasMaxLength(50);
+
+                entity.Property(e => e.Operation)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Symbol).HasMaxLength(50);
+
+                entity.Property(e => e.Type)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.HasOne(d => d.AccountNavigation)
+                    .WithMany(p => p.Transactions)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Transactions_Account");
+            });
+        }
+    }
+}

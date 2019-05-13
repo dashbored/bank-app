@@ -207,6 +207,39 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "DBank.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "dependencies": {
+          "DBank.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DBank.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DBank.Application.dll": {}
+        }
+      },
+      "DBank.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/DBank.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DBank.Common.dll": {}
+        }
+      },
+      "DBank.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.2",
+        "compile": {
+          "bin/placeholder/DBank.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DBank.Domain.dll": {}
+        }
       }
     }
   },
@@ -678,31 +711,48 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "DBank.Application/1.0.0": {
+      "type": "project",
+      "path": "../DBank.Application/DBank.Application.csproj",
+      "msbuildProject": "../DBank.Application/DBank.Application.csproj"
+    },
+    "DBank.Common/1.0.0": {
+      "type": "project",
+      "path": "../DBank.Common/DBank.Common.csproj",
+      "msbuildProject": "../DBank.Common/DBank.Common.csproj"
+    },
+    "DBank.Domain/1.0.0": {
+      "type": "project",
+      "path": "../DBank.Domain/DBank.Domain.csproj",
+      "msbuildProject": "../DBank.Domain/DBank.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "DBank.Application >= 1.0.0",
+      "DBank.Common >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Richard\\.nuget\\packages\\": {},
+    "C:\\Users\\richa\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj",
       "projectName": "DBank.Infrastructure",
-      "projectPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Richard\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Richard\\Desktop\\CSharp\\Projects\\ASP NET MVC 2\\bank-app\\DBank\\DBank.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Infrastructure\\DBank.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\richa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Richard\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\richa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -714,7 +764,14 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj": {
+              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Application\\DBank.Application.csproj"
+            },
+            "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj": {
+              "projectPath": "C:\\Users\\richa\\Desktop\\C#\\ASPNET Core 2 MVC\\bank-app\\DBank\\DBank.Common\\DBank.Common.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
