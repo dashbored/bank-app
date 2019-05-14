@@ -1,0 +1,24 @@
+﻿@model DBank.Application.Customers.Queries.GetCustomer.GetCustomerQuery
+
+<div class="flex-column flex align-content-around ">
+    <div class="header">
+        <h1>Customer image</h1>
+    </div>
+
+    <form asp-action="CustomerImage" 
+          asp-controller="Customers"
+          data-ajax="true"
+          data-ajax-method="GET"
+          data-ajax-mode="replace"
+          data-ajax-update="#_customerImageDetail" >
+          
+        <div class="form-group">
+            <label asp-for="Id" ></label>
+            <input asp-for="Id" class="form-control" type="number" placeholder="Enter customer ID"/>
+            <button type="submit" class="mx-3">Submit</button>
+        </div>
+    </form>
+    <div id="_customerImageDetail" class="box">
+        @*<partial name="_CustomerImageDetail" />*@
+    </div>
+</div>
