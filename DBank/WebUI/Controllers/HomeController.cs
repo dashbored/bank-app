@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using DBank.Application.Bank.Queries.GetBankStatistics;
 using MediatR;
@@ -15,9 +16,13 @@ namespace DBank.WebUI.Controllers
             _mediator = mediator;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
+            var stopwatch = Stopwatch.StartNew();
             var model = await _mediator.Send(new GetBankStatisticsQuery());
+            stopwatch.Stop();
+            Console.WriteLine($"\n\n ELAPSED TIME TO GET BANK STATISTICS: {stopwatch.ElapsedMilliseconds}\n\n");
             return View(model);
         }
 

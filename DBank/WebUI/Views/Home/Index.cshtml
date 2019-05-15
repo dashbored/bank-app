@@ -7,13 +7,22 @@
 
     <div class="row">
         <div class="col">
-            <p>Number of customers: @Model.NumberOfCustomers</p>
+            <div class="card bank-card flex">
+                <h3 class="my-3">Number of customers:</h3>
+                <h5>@Model.NumberOfCustomers</h5>
+            </div>
         </div>
         <div class="col">
-            <p>Number of accounts: @Model.NumberOfAccounts</p>
+            <div class="card bank-card flex">
+                <h3 class="my-3">Number of accounts:</h3>
+                <h5>@Model.NumberOfAccounts</h5>
+            </div>
         </div>
         <div class="col">
-            <p>Total balance: @Model.TotalBalance</p>
+            <div class="card bank-card flex">
+                <h3 class="my-3">Total balance:</h3>
+                <h5> @Model.TotalBalance SEK</h5>
+            </div>      
         </div>
     </div>
 </div>

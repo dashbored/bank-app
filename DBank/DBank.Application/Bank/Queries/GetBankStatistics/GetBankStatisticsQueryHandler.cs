@@ -22,7 +22,7 @@ namespace DBank.Application.Bank.Queries.GetBankStatistics
         {
             var numberOfAccounts = await _context.Accounts.CountAsync(cancellationToken);
             var numberOfCustomers = await _context.Customers.CountAsync(cancellationToken);
-            var totalBalance = await _context.Accounts.SumAsync(b => b.Amount, cancellationToken);
+            var totalBalance = await _context.Accounts.SumAsync(b => b.Balance, cancellationToken);
 
             var model = new BankStatisticsViewModel
             {

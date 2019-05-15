@@ -59,5 +59,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
 
+.container-fluid {
+    height: 80vh;
+}
+
+.bank-card {
+    height: 300px;
+    width: 300px;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+.box {
+    width: 60%;
+    height: 60vh;
+    border: 2px black solid;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none !important; 
+    margin: 0 !important; 
 }
