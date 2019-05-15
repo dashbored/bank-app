@@ -6,7 +6,6 @@ namespace DBank.Domain.Entities
     public partial class Transaction
     {
         public int TransactionId { get; set; }
-        public int ReferenceId { get; set; }
         public int AccountId { get; set; }
         public DateTime Date { get; set; }
         public string Type { get; set; }

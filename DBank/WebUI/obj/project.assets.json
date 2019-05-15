@@ -4797,7 +4797,8 @@
         "dependencies": {
           "DBank.Application": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.2.4",
-          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4"
+          "Microsoft.EntityFrameworkCore.SqlServer": "2.2.4",
+          "Microsoft.Extensions.Identity.Stores": "2.2.0"
         },
         "compile": {
           "bin/placeholder/DBank.Persistence.dll": {}

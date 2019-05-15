@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -36,6 +37,7 @@ namespace DBank.WebUI
             services.AddDbContext<IBankAppDataContext, BankAppDataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("BankAppDatabase")));
 
+            services.AddIdentity<IdentityUser, IdentityRole>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

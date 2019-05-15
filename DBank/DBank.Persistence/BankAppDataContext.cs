@@ -1,17 +1,14 @@
 ﻿using System;
 using DBank.Application.Interfaces;
 using DBank.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-
 namespace DBank.Persistence
 {
-    public partial class BankAppDataContext : DbContext, IBankAppDataContext
+    public partial class BankAppDataContext : IdentityDbContext, IBankAppDataContext
     {
-        public BankAppDataContext()
-        {
-        }
 
         public BankAppDataContext(DbContextOptions<BankAppDataContext> options)
             : base(options)
@@ -26,25 +23,24 @@ namespace DBank.Persistence
         public virtual DbSet<PermenentOrder> PermenentOrder { get; set; }
         public virtual DbSet<Transaction> Transactions { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-401VE7R;Database=BankAppData;Trusted_Connection=True;MultipleActiveResultSets=true");
-            }
-        }
+//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+//        {
+//            if (!optionsBuilder.IsConfigured)
+//            {
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+//                optionsBuilder.UseSqlServer("Server=DESKTOP-401VE7R;Database=BankAppData;Trusted_Connection=True;MultipleActiveResultSets=true");
+//            }
+//        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.HasAnnotation("ProductVersion", "2.2.4-servicing-10062");
 
             modelBuilder.Entity<Account>(entity =>
             {
                 entity.HasKey(e => e.AccountId)
                     .HasName("PK_account");
-
-                entity.Property(e => e.AccountId).ValueGeneratedNever();
 
                 entity.Property(e => e.Balance).HasColumnType("decimal(13, 2)");
 
@@ -58,8 +54,6 @@ namespace DBank.Persistence
             modelBuilder.Entity<Card>(entity =>
             {
                 entity.HasKey(e => e.CardId);
-
-                entity.Property(e => e.CardId).ValueGeneratedNever();
 
                 entity.Property(e => e.Ccnumber)
                     .IsRequired()
@@ -141,8 +135,6 @@ namespace DBank.Persistence
                 entity.HasKey(e => e.DispositionId)
                     .HasName("PK_disposition");
 
-                entity.Property(e => e.DispositionId).ValueGeneratedNever();
-
                 entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -165,8 +157,6 @@ namespace DBank.Persistence
                 entity.HasKey(e => e.LoanId)
                     .HasName("PK_loan");
 
-                entity.Property(e => e.LoanId).ValueGeneratedNever();
-
                 entity.Property(e => e.Amount).HasColumnType("decimal(13, 2)");
 
                 entity.Property(e => e.Date).HasColumnType("date");
@@ -187,8 +177,6 @@ namespace DBank.Persistence
             modelBuilder.Entity<PermenentOrder>(entity =>
             {
                 entity.HasKey(e => e.OrderId);
-
-                entity.Property(e => e.OrderId).ValueGeneratedNever();
 
                 entity.Property(e => e.AccountTo)
                     .IsRequired()
@@ -215,11 +203,6 @@ namespace DBank.Persistence
             {
                 entity.HasKey(e => e.TransactionId)
                     .HasName("PK_trans2");
-
-                entity.HasIndex(e => e.ReferenceId)
-                    .IsUnique();
-
-                entity.Property(e => e.TransactionId).ValueGeneratedNever();
 
                 entity.Property(e => e.Account).HasMaxLength(50);
 
