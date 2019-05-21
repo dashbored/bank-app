@@ -26,10 +26,10 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-./DBank.Application/obj/Debug/
-./DBank.Domain/obj/Debug/
-./DBank.Infrastructure/obj/Debug/
-./DBank.Persistence/obj/Debug/
+./DBank/DBank.Application/obj/Debug/
+./DBank/DBank.Domain/obj/Debug/
+./DBank/DBank.Infrastructure/obj/Debug/
+./DBank/DBank.Persistence/obj/Debug/
 
 
 # Visual Studio 2015/2017 cache/options directory
