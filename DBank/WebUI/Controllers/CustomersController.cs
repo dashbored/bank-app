@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DBank.Application.Customers.Queries.GetCustomer;
+using DBank.Application.Customers.Queries.GetCustomersList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,9 +29,10 @@ namespace DBank.WebUI.Controllers
             return PartialView("_CustomerImageDetail", model);
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            return View();
+            var model = await _mediator.Send(new GetCustomersListQuery());
+            return View(model);
         }
     }
 }
