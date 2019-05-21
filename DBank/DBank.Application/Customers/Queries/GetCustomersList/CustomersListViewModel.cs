@@ -8,5 +8,7 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
     public class CustomersListViewModel
     {
         public IList<CustomerViewModel> Customers { get; set; }
+        public int PageNumber { get; set; }
+        public int NextPageNumber { get => PageNumber + 1; }
     }
 }

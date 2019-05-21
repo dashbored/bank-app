@@ -1,0 +1,38 @@
+﻿@model DBank.Application.Customers.Queries.GetCustomersList.CustomersListViewModel
+<div class="tableFixHead">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Customer number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var count = 1;
+                foreach (var c in Model.Customers)
+                {
+                    <tr>
+                        <td scope="row">@count</td>
+                        <td>@c.Id</td>
+                        <td>@c.Fullname</td>
+                        <td>@c.Emailaddress</td>
+                    </tr>
+                    count++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div class="container justify-content-center">
+    <a class="btn btn-primary my-2"
+       asp-action="NextPage"
+       asp-controller="Customers"
+       asp-route-pageNumber="@Model.NextPageNumber"
+       data-ajax="true"
+       data-ajax-method="GET"
+       data-ajax-mode="replace"
+       data-ajax-update="#customerList">Next page</a>
+</div>

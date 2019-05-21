@@ -7,11 +7,10 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
 {
     public class GetCustomersListQuery : IRequest<CustomersListViewModel>
     {
-
-        public GetCustomersListQuery()
+        public GetCustomersListQuery(int pageNumber = 1)
         {
             LinesPerPage = 50;
-            PageNumber = 1;
+            PageNumber = pageNumber;
         }
 
         public int LinesPerPage { get; set; }

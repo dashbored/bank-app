@@ -34,5 +34,11 @@ namespace DBank.WebUI.Controllers
             var model = await _mediator.Send(new GetCustomersListQuery());
             return View(model);
         }
+
+        public async Task<IActionResult> NextPage(int pageNumber = 1)
+        {
+            var model = await _mediator.Send(new GetCustomersListQuery(pageNumber));
+            return PartialView("_CustomerListPartial", model);
+        }
     }
 }

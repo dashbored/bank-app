@@ -21,7 +21,7 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
         }
         public async Task<CustomersListViewModel> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Customers.Take(request.LinesPerPage).Skip(request.Offset).Select(c => CustomerViewModel.Create(c)).ToListAsync();
+            var entity = await _context.Customers.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c)).ToListAsync();
 
             if (entity == null)
             {
@@ -29,9 +29,11 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
                 throw new Exception("Could not find customers");
             }
 
+
             var model = new CustomersListViewModel
             {
-                Customers = entity
+                Customers = entity,
+                PageNumber = request.PageNumber
             };
 
             return model;
