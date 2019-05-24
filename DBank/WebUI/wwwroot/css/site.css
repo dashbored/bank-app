@@ -13,6 +13,11 @@ html {
     font-size: 14px;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (min-width: 768px) {
     html {
         font-size: 16px;
@@ -77,6 +82,7 @@ body {
     width: 60%;
     height: 60vh;
     border: 2px black solid;
+    padding: 1rem;
 }
 
 input[type=number]::-webkit-inner-spin-button,

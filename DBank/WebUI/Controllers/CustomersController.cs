@@ -23,10 +23,15 @@ namespace DBank.WebUI.Controllers
             return View();
         }
         
-        public async Task<IActionResult> CustomerImage(GetCustomerQuery query)
+        public async Task<IActionResult> Image(int id)
         {
+            var query = new GetCustomerQuery
+            {
+                Id = id
+            };
+
             var model = await _mediator.Send(query);
-            return PartialView("_CustomerImageDetail", model);
+            return View("Index", model);
         }
 
         public async Task<IActionResult> List()

@@ -1,22 +1,37 @@
-﻿@model DBank.Application.Customers.Queries.GetCustomer.GetCustomerQuery
+﻿@model DBank.Application.Customers.Queries.GetCustomer.CustomerViewModel
 
-<div class="flex-column flex align-content-around ">
+<div class="flex-column flex">
     <div class="header">
         <h1>Customer image</h1>
     </div>
 
-    <form asp-action="CustomerImage" 
-          asp-controller="Customers"
-          data-ajax="true"
-          data-ajax-method="GET"
-          data-ajax-mode="replace"
-          data-ajax-update="#_customerImageDetail" >
-          
-        <div class="form-group">
-            <label asp-for="Id" ></label>
-            <input asp-for="Id" class="form-control" type="number" placeholder="Enter customer ID"/>
-            <button type="submit" class="mx-3">Submit</button>
+    @*<form asp-action="CustomerImage"
+              asp-controller="Customers"
+              data-ajax="true"
+              data-ajax-method="GET"
+              data-ajax-mode="replace"
+              data-ajax-update="#_customerImageDetail">
+
+            <div class="form-group row">
+                <label asp-for="Id" class="col-form-label col-2"></label>
+                <input asp-for="Id" class="form-control col-10" type="number" placeholder="Enter customer ID" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary ">Submit</button>
+            </div>
+        </form>*@
+    <div id="_customerImageDetail" class="box">
+        <h1 class="my-2 font-weight-bold">Customer: @Model.Id</h1>
+        <div class="my-4">
+            <h4><span class="font-weight-bold">Name:</span> @Model.Fullname</h4>
+            <h4><span class="font-weight-bold">Personal number:</span> @Model.NationalId</h4>
         </div>
-    </form>
-    <div id="_customerImageDetail" class="box"></div>
+
+        <div class="my-4">
+            <h4><span class="font-weight-bold">Email:</span> @Model.Emailaddress</h4>
+            <h4><span class="font-weight-bold">City:</span> @Model.City</h4>
+            <h4><span class="font-weight-bold">Zipcode:</span> @Model.Zipcode</h4>
+            <h4><span class="font-weight-bold">Street address:</span> @Model.Streetaddress</h4>
+        </div>
+    </div>
 </div>

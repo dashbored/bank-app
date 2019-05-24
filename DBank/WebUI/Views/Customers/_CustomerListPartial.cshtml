@@ -7,6 +7,7 @@
                 <th scope="col">Customer number</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -19,6 +20,13 @@
                         <td>@c.Id</td>
                         <td>@c.Fullname</td>
                         <td>@c.Emailaddress</td>
+                        <td>
+                            <a asp-action="Image" asp-controller="Customers" asp-route-id="@c.Id">
+                                <i class="material-icons">
+                                    edit
+                                </i>
+                            </a>
+                        </td>
                     </tr>
                     count++;
                 }
@@ -26,7 +34,7 @@
         </tbody>
     </table>
 </div>
-<div class="container justify-content-center">
+<div>
     <a class="btn btn-primary my-2"
        asp-action="NextPage"
        asp-controller="Customers"

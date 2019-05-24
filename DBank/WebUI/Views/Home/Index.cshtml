@@ -22,7 +22,21 @@
             <div class="card bank-card flex">
                 <h3 class="my-3">Total balance:</h3>
                 <h5> @Model.TotalBalance SEK</h5>
-            </div>      
+            </div>
         </div>
+    </div>
+    <div class="row pt-5">
+        <h2>Show customer details</h2>
+    </div>
+    <div class="row pt-3">
+        <form asp-action="Image"
+              asp-controller="Customers">
+
+            <label for="id">Id</label>
+            <div class="form-group row">
+                <input name="id" class="form-control col-8" type="number" placeholder="Enter customer ID" />
+                <button type="submit" class="btn btn-primary ml-2">Submit</button>
+            </div>
+        </form>
     </div>
 </div>
