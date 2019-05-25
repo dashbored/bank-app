@@ -1,0 +1,15 @@
+﻿
+<form asp-action="CustomerList"
+      asp-controller="Customers"
+      asp-route-pageNumber="@Model.NextPageNumber"
+      data-ajax="true"
+      data-ajax-method="GET"
+      data-ajax-mode="replace"
+      data-ajax-update="#customerList"
+      >
+    <div class="form-group">
+        <label for="query">Search</label>
+        <input class="form-control" id="query" name="query" aria-describedby="emailHelp" placeholder="Name or city">
+    </div>
+    <button class="btn btn-primary">Submit</button>
+</form>

@@ -21,7 +21,21 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
         }
         public async Task<CustomersListViewModel> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
         {
-            var entity = await _context.Customers.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c)).ToListAsync();
+
+            List<CustomerViewModel> entity;
+            if (request.Query == null)
+            {
+                entity = await _context.Customers.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c)).ToListAsync(cancellationToken);
+            }
+            else
+            {
+                entity = await _context.Customers.Where(c =>
+                        c.City.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase) ||
+                        c.Surname.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase) ||
+                        c.Givenname.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase))
+                    .Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c))
+                    .ToListAsync(cancellationToken);
+            }
 
             if (entity == null)
             {
@@ -33,11 +47,12 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
             var model = new CustomersListViewModel
             {
                 Customers = entity,
-                PageNumber = request.PageNumber
+                PageNumber = request.PageNumber,
+                Query = request.Query
             };
 
             return model;
-            
+
         }
     }
 }

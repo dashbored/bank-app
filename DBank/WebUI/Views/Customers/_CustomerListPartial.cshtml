@@ -7,6 +7,7 @@
                 <th scope="col">Customer number</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
+                <th scope="col">City</th>
                 <th scope="col">Edit</th>
             </tr>
         </thead>
@@ -20,6 +21,7 @@
                         <td>@c.Id</td>
                         <td>@c.Fullname</td>
                         <td>@c.Emailaddress</td>
+                        <td>@c.City</td>
                         <td>
                             <a asp-action="Image" asp-controller="Customers" asp-route-id="@c.Id">
                                 <i class="material-icons">
@@ -36,9 +38,10 @@
 </div>
 <div>
     <a class="btn btn-primary my-2"
-       asp-action="NextPage"
+       asp-action="CustomerList"
        asp-controller="Customers"
        asp-route-pageNumber="@Model.NextPageNumber"
+       asp-route-query="@Model.Query"
        data-ajax="true"
        data-ajax-method="GET"
        data-ajax-mode="replace"

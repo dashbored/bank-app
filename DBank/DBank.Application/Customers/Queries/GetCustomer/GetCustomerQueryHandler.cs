@@ -24,7 +24,7 @@ namespace DBank.Application.Customers.Queries.GetCustomer
             if (entity == null)
             {
                 //TODO: Throw better exception
-                throw new Exception($"Could not find customer with it {request.Id}");
+                throw new Exception($"Could not find customer with id: {request.Id}");
             }
 
             return CustomerViewModel.Create(entity);
