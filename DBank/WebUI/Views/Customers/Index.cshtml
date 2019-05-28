@@ -1,7 +1,7 @@
 ﻿@model DBank.Application.Customers.Queries.GetCustomer.CustomerViewModel
 
-<div class="flex-column flex">
-    <div class="header">
+<div class="flex-column">
+    <div class="header text-center">
         <h1>Customer image</h1>
     </div>
 
@@ -20,18 +20,79 @@
                 <button type="submit" class="btn btn-primary ">Submit</button>
             </div>
         </form>*@
-    <div id="_customerImageDetail" class="box">
-        <h1 class="my-2 font-weight-bold">Customer: @Model.Id</h1>
-        <div class="my-4">
-            <h4><span class="font-weight-bold">Name:</span> @Model.Fullname</h4>
-            <h4><span class="font-weight-bold">Personal number:</span> @Model.NationalId</h4>
+    <div id="_customerImageDetail">
+        <div class="row justify-content-center">
+            <div class="col-5">
+
+            </div>
+            <div class="col">
+                <h1 class="my-2 font-weight-bold text-center">Customer: @Model.Id</h1>
+                <div class="my-4">
+                    <h4><span class="font-weight-bold">Name:</span> @Model.Fullname</h4>
+                    <h4><span class="font-weight-bold">Personal number:</span> @Model.NationalId</h4>
+                </div>
+
+                <div class="my-4">
+                    <h4><span class="font-weight-bold">Email:</span> @Model.Emailaddress</h4>
+                    <h4><span class="font-weight-bold">City:</span> @Model.City</h4>
+                    <h4><span class="font-weight-bold">Zipcode:</span> @Model.Zipcode</h4>
+                    <h4><span class="font-weight-bold">Street address:</span> @Model.Streetaddress</h4>
+                </div>
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+        <div class="row justify-content-between">
+            <div class="col">
+                <h1 class="text-center my-2 font-weight-bold">Accounts</h1>
+
+                <div id="myTarget">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    Id
+                                </th>
+                                <th class="text-center">
+                                    Belopp
+                                </th>
+                                <th class="text-center">
+                                    Summa
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="border">
+                            <partial name="_TransactionsPartial" />
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col">
+                <h1 class="text-center my-2 font-weight-bold">Transactions</h1>
+
+                <div id="myTarget">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    Id
+                                </th>
+                                <th class="text-center">
+                                    Belopp
+                                </th>
+                                <th class="text-center">
+                                    Summa
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="border">
+                            <partial name="_TransactionsPartial" />
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
-        <div class="my-4">
-            <h4><span class="font-weight-bold">Email:</span> @Model.Emailaddress</h4>
-            <h4><span class="font-weight-bold">City:</span> @Model.City</h4>
-            <h4><span class="font-weight-bold">Zipcode:</span> @Model.Zipcode</h4>
-            <h4><span class="font-weight-bold">Street address:</span> @Model.Streetaddress</h4>
-        </div>
     </div>
 </div>

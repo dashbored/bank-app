@@ -10,7 +10,7 @@ namespace DBank.Application.Customers.Queries.GetCustomer
         public int Id { get; set; }
         public string Givenname { get; set; }
         public string Surname { get; set; }
-        public string Fullname => Givenname + " " + Surname;
+        public string Fullname => $"{Givenname} {Surname}";
 
         public string Streetaddress { get; set; }
         public string City { get; set; }
@@ -18,6 +18,8 @@ namespace DBank.Application.Customers.Queries.GetCustomer
         public string Country { get; set; }
         public string Emailaddress { get; set; }
         public string NationalId { get; set; }
+
+
 
         public static CustomerViewModel Create(Customer customer)
         {

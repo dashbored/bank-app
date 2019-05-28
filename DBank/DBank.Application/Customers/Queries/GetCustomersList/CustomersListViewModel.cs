@@ -11,5 +11,6 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
         public int PageNumber { get; set; }
         public int NextPageNumber => PageNumber + 1;
         public string Query { get; set; }
+        public bool IsLastPage { get; set; }
     }
 }

@@ -21,34 +21,41 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
         }
         public async Task<CustomersListViewModel> Handle(GetCustomersListQuery request, CancellationToken cancellationToken)
         {
+            IList<CustomerViewModel> entity;
+            IQueryable<Domain.Entities.Customer> query;
 
-            List<CustomerViewModel> entity;
             if (request.Query == null)
             {
-                entity = await _context.Customers.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c)).ToListAsync(cancellationToken);
+                 query =  _context.Customers;
+                    //.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c)).ToListAsync(cancellationToken);
             }
             else
             {
-                entity = await _context.Customers.Where(c =>
+                query = _context.Customers.Where(c =>
                         c.City.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase) ||
                         c.Surname.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase) ||
-                        c.Givenname.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase))
-                    .Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c))
-                    .ToListAsync(cancellationToken);
+                        c.Givenname.Contains(request.Query, StringComparison.InvariantCultureIgnoreCase));
+                    //.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c))
+                    //.ToListAsync(cancellationToken);
             }
 
-            if (entity == null)
+            if (query == null)
             {
                 //TODO: Implement better exception
                 throw new Exception("Could not find customers");
             }
 
+            entity = await query.Skip(request.Offset).Take(request.LinesPerPage).Select(c => CustomerViewModel.Create(c))
+                    .ToListAsync(cancellationToken);
+
+            var isLastPage = (request.Offset + entity.Count()).Equals(query.Count());
 
             var model = new CustomersListViewModel
             {
                 Customers = entity,
                 PageNumber = request.PageNumber,
-                Query = request.Query
+                Query = request.Query,
+                IsLastPage = isLastPage
             };
 
             return model;

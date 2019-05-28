@@ -14,8 +14,6 @@ namespace DBank.Application.Customers.Queries.GetCustomersList
             Query = query;
         }
 
-
-
         public int LinesPerPage { get; set; }
         public int PageNumber { get; set; }
         public int Offset => LinesPerPage * (PageNumber - 1);

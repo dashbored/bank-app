@@ -1,16 +1,19 @@
 ﻿@model DBank.Application.Customers.Queries.GetCustomer.CustomerViewModel
 
-<h1 class="my-2 font-weight-bold">Customer: @Model.Id</h1>
-<div class="my-4">
-    <h4><span class="font-weight-bold">Name:</span> @Model.Fullname</h4>
-    <h4><span class="font-weight-bold">Personal number:</span> @Model.NationalId</h4>
+<div class="justify-content-between">
+    <div class="col">
+        <h1 class="my-2 font-weight-bold">Customer: @Model.Id</h1>
+        <div class="my-4">
+            <h4><span class="font-weight-bold">Name:</span> @Model.Fullname</h4>
+            <h4><span class="font-weight-bold">Personal number:</span> @Model.NationalId</h4>
+        </div>
+
+        <div class="my-4">
+            <h4><span class="font-weight-bold">Email:</span> @Model.Emailaddress</h4>
+            <h4><span class="font-weight-bold">City:</span> @Model.City</h4>
+            <h4><span class="font-weight-bold">Zipcode:</span> @Model.Zipcode</h4>
+            <h4><span class="font-weight-bold">Street address:</span> @Model.Streetaddress</h4>
+        </div>
+    </div>
+    <div class="col">test</div>
 </div>
-
-<div class="my-4">
-    <h4><span class="font-weight-bold">Email:</span> @Model.Emailaddress</h4>
-    <h4><span class="font-weight-bold">City:</span> @Model.City</h4>
-    <h4><span class="font-weight-bold">Zipcode:</span> @Model.Zipcode</h4>
-    <h4><span class="font-weight-bold">Street address:</span> @Model.Streetaddress</h4>
-</div>
-
-

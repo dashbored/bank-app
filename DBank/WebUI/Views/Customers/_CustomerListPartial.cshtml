@@ -3,7 +3,6 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Customer number</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
@@ -12,32 +11,27 @@
             </tr>
         </thead>
         <tbody>
-            @{
-                var count = 1;
-                foreach (var c in Model.Customers)
-                {
-                    <tr>
-                        <td scope="row">@count</td>
-                        <td>@c.Id</td>
-                        <td>@c.Fullname</td>
-                        <td>@c.Emailaddress</td>
-                        <td>@c.City</td>
-                        <td>
-                            <a asp-action="Image" asp-controller="Customers" asp-route-id="@c.Id">
-                                <i class="material-icons">
-                                    edit
-                                </i>
-                            </a>
-                        </td>
-                    </tr>
-                    count++;
-                }
+            @foreach (var c in Model.Customers)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.Fullname</td>
+                    <td>@c.Emailaddress</td>
+                    <td>@c.City</td>
+                    <td>
+                        <a asp-action="Image" asp-controller="Customers" asp-route-id="@c.Id">
+                            <i class="material-icons">
+                                edit
+                            </i>
+                        </a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 </div>
 <div>
-    <a class="btn btn-primary my-2"
+    <a class="btn btn-primary my-2 @(Model.IsLastPage ? "disabled" : "")"
        asp-action="CustomerList"
        asp-controller="Customers"
        asp-route-pageNumber="@Model.NextPageNumber"
